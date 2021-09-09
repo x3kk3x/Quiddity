@@ -1,17 +1,19 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button, Icon } from "react-native";
 import Images from "./components/Images";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function App() {
   return (
     <View style={styles.container}>
       {/* TItle and Image wrapper */}
       <View style={styles.imagesWrapper}>
-        <Text style={styles.sectionTitle}>In the eye of the beholder!</Text>
+        <Text style={styles.sectionTitle}>
+          Everything not saved will be lost!
+        </Text>
         <View style={styles.items}>
           {/* This is where the images will go! */}
           <Images />
-          <Text />
         </View>
       </View>
     </View>
@@ -30,10 +32,17 @@ const styles = StyleSheet.create({
   },
 
   sectionTitle: {
-    fontSize: 24,
+    width: "90%",
+    fontSize: 30,
     fontWeight: "bold",
-    paddingBottom: 30,
+    textTransform: "uppercase",
+    color: "#333",
+    paddingBottom: 15,
+    lineHeight: 30,
   },
 
-  items: {},
+  items: {
+    position: "relative",
+    justifyContent: "center",
+  },
 });
