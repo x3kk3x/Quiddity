@@ -1,29 +1,37 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, Icon } from "react-native";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import Images from "./components/Images";
-import { Ionicons } from "@expo/vector-icons";
+import Buttons from "./components/Buttons";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* TItle and Image wrapper */}
-      <View style={styles.imagesWrapper}>
-        <Text style={styles.sectionTitle}>
-          Everything not saved will be lost!
-        </Text>
-        <View style={styles.items}>
-          {/* This is where the images will go! */}
-          <Images />
+      <ImageBackground
+        source={{
+          uri: "https://images.unsplash.com/photo-1515549832467-8783363e19b6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80",
+        }}
+        style={styles.image}
+      >
+        <View style={styles.imagesWrapper}>
+          <Text style={styles.sectionTitle}>
+            Everything not saved will be lost!
+          </Text>
+          <View style={styles.items}>
+            <Images />
+          </View>
         </View>
-      </View>
+        <Buttons />
+      </ImageBackground>
     </View>
   );
 }
 
+// Styling Title and Alignment
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E8EAED",
+    backgroundColor: "transparent",
   },
 
   imagesWrapper: {
@@ -43,6 +51,12 @@ const styles = StyleSheet.create({
 
   items: {
     position: "relative",
+    justifyContent: "center",
+  },
+
+  image: {
+    flex: 1,
+    resizeMode: "cover",
     justifyContent: "center",
   },
 });
